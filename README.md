@@ -74,7 +74,7 @@ Create a `.env` file in the root directory with the following:
 
 ```env
 PORT=5000
-MONGODB_URI=mongodb+srv://edrisabdella178_db_user:mern123@cluster0.zmfeu2j.mongodb.net/mern-blog-db?retryWrites=true&w=majority
+MONGODB_URI=mongodb+srv://edrisabdella178_db_user:mern***@cluster0.zmfeu2j.mongodb.net/mern-blog-db?retryWrites=true&w=majority
 CLIENT_URL=http://localhost:5173
 JWT_SECRET=ADMIN123
 You can switch MONGODB_URI to a local MongoDB if needed:
