@@ -1,197 +1,227 @@
-# Real-Time Chat Application with Socket.io
-# Real-Time Communication with Socket.IO
+# 🗨️ Real-Time Chat App  
 
-[![GitHub Repo](https://img.shields.io/badge/GitHub-PLP--MERN--Stack--Development-blue)](https://github.com/PLP-MERN-Stack-Development/real-time-communication-with-socket-io-Edrisabdella.git)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Edris%20Abdella-blue)](https://www.linkedin.com/in/edris-abdella-7aa521177)
-
-## Table of Contents
-- [Project Overview](#project-overview)
-- [Features](#features)
-- [Technologies](#technologies)
-- [Project Structure](#project-structure)
-- [Environment Variables](#environment-variables)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Authentication](#authentication)
-- [Real-Time Features](#real-time-features)
-- [Reference Files](#reference-files)
-- [Contact](#contact)
+**Full-Stack MERN + Socket.IO Application with JWT Auth, Email Verification, Avatars, and Message Editing**
 
 ---
 
-## Project Overview
+## 📘 Overview
 
-This project is a **Real-Time Communication Application** built using **Node.js, Express, Socket.IO, and MongoDB**. Users can send messages in real-time, register, login, and authenticate via JWT. The project supports multiple clients and includes a simple chat UI for testing.  
-
----
-
-## Features
-
-- User registration and login with **JWT authentication**
-- Real-time messaging using **Socket.IO**
-- Private messaging and broadcasting
-- Message deletion and pagination
-- MongoDB for persistent storage
-- Docker-ready for easy deployment
-- Environment variable configuration for production and development
+**Real-Time Chat App** is a modern messaging platform built on the MERN stack with live communication powered by Socket.IO.  
+It offers secure user authentication, email verification via Gmail SMTP, profile avatars, real-time messaging, message editing & deletion, and scalable pagination.  
+The project supports both **local development** and **Dockerized deployment**.
 
 ---
 
-## Technologies
+## 🧩 Features
 
-- **Backend:** Node.js, Express
-- **Database:** MongoDB (Atlas or local)
-- **Real-Time Communication:** Socket.IO
-- **Authentication:** JWT
-- **Dev Tools:** Nodemon, dotenv
-- **Optional:** Docker Compose
-
----
-
-## Project Structure
-
-real-time-communication-with-socket-io-Edrisabdella/
-│
-├── server.js # Main server entry point
-├── socket.js # Socket.IO connection handling
-├── package.json # NPM dependencies and scripts
-├── .env # Environment variables
-├── README.md # Project documentation
-├── client/ # Optional front-end folder (HTML, React, or Vue)
-│ └── index.html
-└── models/ # Mongoose schemas
-├── User.js
-└── Message.js
-
-yaml
-Copy code
+| Category | Feature |
+|-----------|----------|
+| 🔐 Authentication | JWT-based login / register with hashed passwords |
+| ✉️ Email Verification | Gmail SMTP integration using Nodemailer |
+| 🖼️ Profile Avatars | Image upload via Multer, served statically |
+| 💬 Messaging | Real-time text chat (Socket.IO) with per-room support |
+| ✏️ Message Editing | Edit and broadcast updated messages instantly |
+| 🗑️ Message Deletion | Delete own messages; event syncs across clients |
+| 📜 Pagination | Infinite scroll (50 messages per page) |
+| 👥 Admin Account |: **admin / uyeetoqpcimvblxc** |
+| 🐳 Docker Ready | Runs MongoDB, server, and client via docker-compose |
+| 🧪 Testing | Health & registration smoke tests in `/tests` |
 
 ---
 
-## Environment Variables
+## 🧱 Tech Stack
 
-Create a `.env` file in the root directory with the following:
+**Frontend:** React 18 + Vite + Socket.IO-Client  
+**Backend:** Node.js 18 + Express 4 + Socket.IO 4 + Mongoose 7  
+**Database:** MongoDB 6 (Local or Atlas)  
+**Auth & Email:** bcryptjs + jsonwebtoken + nodemailer  
+**Uploads:** multer  
+**DevOps:** Docker Compose  
+
+---
+
+## 🗂️ Project Structure
+
+```real-time-chat-App/
+├── client/                  # React + Vite frontend
+├── server/                  # Express + Socket.IO backend
+│   ├── models/              # Mongoose schemas (User, Message)
+│   ├── routes/              # Auth, Users, Messages endpoints
+│   ├── middleware/          # JWT auth middleware
+│   └── uploads/avatars/     # Profile pictures
+├── tests/                   # Smoke & integration scripts
+├── docker-compose.yml
+└── README.md
+```
+
+---
+
+## ⚙️ Environment Variables
+
+### 🔧 Server (`server/.env`)
 
 ```env
 PORT=5000
-MONGODB_URI=mongodb+srv://edrisabdella178_db_user:mern***@cluster0.zmfeu2j.mongodb.net/mern-blog-db?retryWrites=true&w=majority
-CLIENT_URL=http://localhost:5173
-JWT_SECRET=ADMIN123
-You can switch MONGODB_URI to a local MongoDB if needed:
-
-env
-Copy code
 MONGODB_URI=mongodb://localhost:27017/realtime_chat
-Installation
-Clone the repository:
+JWT_SECRET=af23ab5a8a172e24c6d2a4a7004c2ed21b067dbeb63d54e81f50a1db2423f257df4beecb87ee91e806baeea6f65506cee245c80693227b7107b31840629b1259
+MONGODB_URI_ATLAS=mongodb+srv://engineeredrisabdella_db_user:
+CLIENT_URL=http://localhost:5173
 
-bash
-Copy code
-git clone https://github.com/PLP-MERN-Stack-Development/real-time-communication-with-socket-io-Edrisabdella.git
-cd real-time-communication-with-socket-io-Edrisabdella
-Install dependencies:
+# Gmail SMTP (Used Google App Password)
+SMTP_HOST=smtp.gmail.com
+SMTP_PORT=587
+SMTP_USER=edrisabdella178@gmail.com
+SMTP_PASS=uyeetoqpcimvblxc
+EMAIL_FROM="Real-Time Chat <edrisabdella178@gmail.com>"
+```
 
-bash
-Copy code
+### 💻 Client (`client/.env`)
+
+```env
+VITE_SOCKET_URL=http://localhost:5000
+VITE_API_URL=http://localhost:5000
+```
+
+---
+
+## 🚀 Running Locally (Recommended)
+
+### 1️⃣ Backend
+
+```bash
+cd server
 npm install
-Start the development server:
+copy .env.example .env   # or cp .env.example .env
+npm run start
+```
 
-bash
-Copy code
+Expected:
+
+```
+Connected to MongoDB
+Server listening on port 5000
+Created admin user -> username: admin password: uyeetoqpcimvblxc
+```
+
+### 2️⃣ Frontend
+
+```bash
+cd client
+npm install
 npm run dev
-Start the production server:
+```
 
-bash
-Copy code
-npm start
-Usage
-Visit http://localhost:5000/ to test the server.
+Open 👉 [http://localhost:5173](http://localhost:5173)
 
-Connect clients via Socket.IO using the /socket.io endpoint.
+---
 
-Register users and authenticate via JWT.
+## 🐳 Running with Docker Compose
 
-Send and receive messages in real-time.
+```bash
+cd real-time-chat-App
+docker compose up --build
+```
 
-Authentication
-Users can register with username and password.
+| Service | Port | Description |
+|----------|------|-------------|
+| MongoDB | 27017 | Database |
+| Server | 5000 | Express + Socket.IO |
+| Client | 5173 | React UI (Nginx) |
 
-Passwords are hashed before saving to MongoDB.
+Stop: `Ctrl +C` or `docker compose down`
 
-JWT is used for session management.
+---
 
-Example: Authorization: Bearer <token> in HTTP headers.
+## 📬 Email Verification Workflow
 
-Real-Time Features
-Socket.IO enables instant message delivery.
+1. User registers → backend sends Gmail SMTP verification email.  
+2. User clicks verification link → `/api/auth/verify/:token`.  
+3. Account marked verified → user can now log in.
 
-Private messaging supported by specifying recipient ID.
+---
 
-Broadcast messages to all connected users.
+## 🖼️ Profile Avatar Upload
 
-Messages are saved in MongoDB.
+After logging in:
 
-Optional message deletion and pagination for chat history.
+- Use the sidebar file input to upload an image (`PNG/JPG < 2 MB`).
+- File saved under `server/uploads/avatars/{userId}.jpg`
+- URL stored in user profile and displayed in chat.
 
-Reference Files
-server.js – Node.js server setup
+---
 
-socket.js – Socket.IO connection and event handling
+## ✏️ Editing & Deleting Messages
 
-models/User.js – Mongoose user schema
+- Click **Edit** or **Delete** on your own message.  
+- Edits are saved via PATCH `/api/messages/:id` and broadcast live via Socket.IO.  
+- Deletes emit `messageDeleted` event to all clients.
 
-models/Message.js – Mongoose message schema
+---
 
-client/index.html – Minimal front-end for testing
+## 📜 Pagination
 
-All reference files are included in the repository for full execution.
+The backend returns the 50 most recent messages per page:
 
-Contact
-Name: Edris Abdella
+```
+GET /api/messages?room=global&page=2&limit=50
+```
 
-Email: edrisabdella178@gmail.com
+---
 
-Phone: +251905131051
+## 🧪 Testing API
 
-LinkedIn: https://www.linkedin.com/in/edris-abdella-7aa521177
-Deplyoment:[github pages](https://edrisabdella.github.io/
-PLP-MERN-Stack-Development-real-time-communication-with-socket-io-Edrisabdella/)
-GitHub: https://github.com/PLP-MERN-Stack-Development/real-time-communication-with-socket-io-Edrisabdella.git
+Run a quick health check:
 
-Location: Dire Dawa, Ethiopia
+```bash
+cd tests
+node advanced-smoke.js
+```
 
-Profile Image: https://ibb.co/RT6rny3B
+Expected:
 
+```
+health { status: 'ok' }
+register status 200 ...
+```
 
-## Files Included
+---
 
-- `Week5-Assignment.md`: Detailed assignment instructions
-- Starter code for both client and server:
-  - Basic project structure
-  - Socket.io configuration templates
-  - Sample components for the chat interface
+## 🧠 Security & Best Practices
+  
+- Used HTTPS in production.  
+- Setted strong `JWT_SECRET` values.  
+- Limit file size for uploads.  
+- Used rate limiting / helmet for extra security.
 
-## Requirements
+---
 
-- Node.js (v18 or higher)
-- npm or yarn
-- Modern web browser
-- Basic understanding of React and Express
+## 📦 Deployment
 
-## Submission
+- Deployed on GitHub: [deployment pages](https://edrisabdella.github.io/PLP-MERN-Stack-Development-real-time-communication-with-socket-io-Edrisabdella/)
 
-Your work will be automatically submitted when you push to your GitHub Classroom repository. Make sure to:
+    Further deployment will be as following
+- Host backend on Render / Railway / Vercel (backend).  
+- Use MongoDB Atlas for DB.  
+- Build frontend with:
 
-1. Complete both the client and server portions of the application
-2. Implement the core chat functionality
-3. Add at least 3 advanced features
-4. Document your setup process and features in the README.md
-5. Include screenshots or GIFs of your working application
-6. Optional: Deploy your application and add the URLs to your README.md
+  ```bash
+  cd client
+  npm run build
+  ```
 
-## Resources used
+  → deploy `dist/` to Netlify or Vercel.  
+- Update CORS and CLIENT_URL to your production domain.
 
-- [Socket.io Documentation](https://socket.io/docs/v4/)
-- [React Documentation](https://react.dev/)
-- [Express.js Documentation](https://expressjs.com/)
-- [Building a Chat Application with Socket.io](https://socket.io/get-started/chat)
+---
+
+## 🧑‍💻 Project Maintainer
+
+**Edris Abdella**  
+📍 Dire Dawa, Ethiopia  
+📧 [edrisabdella178@gmail.com](mailto:edrisabdella178@gmail.com)  
+🔗 [LinkedIn: Edris Abdella](https://www.linkedin.com/in/edris-abdella-7aa521177)  
+📞 +251 905 131 051  
+
+---
+
+## 💚

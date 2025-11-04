@@ -4,7 +4,8 @@
   "description": "This assignment focuses on building a real-time chat application using Socket.io, implementing bidirectional communication between clients and server.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server.js",
+    "dev": "nodemon server.js"
   },
   "repository": {
     "type": "git",
@@ -17,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/PLP-MERN-Stack-Development/real-time-communication-with-socket-io-Edrisabdella/issues"
   },
-  "homepage": "https://github.com/PLP-MERN-Stack-Development/real-time-communication-with-socket-io-Edrisabdella#readme"
+  "homepage": "https://github.com/PLP-MERN-Stack-Development/real-time-communication-with-socket-io-Edrisabdella#readme",
+  "dependencies": {
+    "nodemailer": "^7.0.10"
+  }
 }
