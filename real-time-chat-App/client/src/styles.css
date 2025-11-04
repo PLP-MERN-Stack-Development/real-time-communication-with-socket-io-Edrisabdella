@@ -1,0 +1,15 @@
+body { font-family: system-ui, sans-serif; margin:0; padding:0; background:#f7faf7; }
+.app { max-width:1000px; margin:24px auto; background:white; border-radius:8px; box-shadow:0 6px 20px rgba(0,0,0,0.06); overflow:hidden; display:block;}
+header { padding:12px 16px; display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid #eee; }
+.container { display:flex; gap:12px; padding:16px; }
+.sidebar { width:260px; border-right:1px solid #eee; padding-right:12px; }
+.chat { flex:1; }
+.messages { max-height:60vh; overflow:auto; margin-bottom:12px; }
+.msg { padding:8px 10px; border-radius:6px; background:#f1f5f9; margin-bottom:8px; position:relative; }
+.meta { font-size:12px; color:#333; margin-bottom:6px; display:flex; justify-content:space-between; align-items:center; }
+.composer-form { display:flex; gap:8px; }
+.composer-form input { flex:1; padding:10px; border-radius:6px; border:1px solid #ddd; }
+.composer-form button { padding:10px 14px; border-radius:6px; border:0; background:#16a34a; color:white; cursor:pointer; }
+.delete { position:absolute; right:8px; top:8px; background:#ef4444; color:white; border:none; padding:6px 8px; border-radius:4px; cursor:pointer; }
+.auth input { display:block; margin-bottom:8px; padding:8px; width:100%; }
+img[alt="avatar"]{ vertical-align: middle; }

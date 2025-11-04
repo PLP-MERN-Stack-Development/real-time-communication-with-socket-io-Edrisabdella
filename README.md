@@ -1,47 +1,167 @@
 # Real-Time Chat Application with Socket.io
+# Real-Time Communication with Socket.IO
 
-This assignment focuses on building a real-time chat application using Socket.io, implementing bidirectional communication between clients and server.
+[![GitHub Repo](https://img.shields.io/badge/GitHub-PLP--MERN--Stack--Development-blue)](https://github.com/PLP-MERN-Stack-Development/real-time-communication-with-socket-io-Edrisabdella.git)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Edris%20Abdella-blue)](https://www.linkedin.com/in/edris-abdella-7aa521177)
 
-## Assignment Overview
+## Table of Contents
+- [Project Overview](#project-overview)
+- [Features](#features)
+- [Technologies](#technologies)
+- [Project Structure](#project-structure)
+- [Environment Variables](#environment-variables)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Authentication](#authentication)
+- [Real-Time Features](#real-time-features)
+- [Reference Files](#reference-files)
+- [Contact](#contact)
 
-You will build a chat application with the following features:
-1. Real-time messaging using Socket.io
-2. User authentication and presence
-3. Multiple chat rooms or private messaging
-4. Real-time notifications
-5. Advanced features like typing indicators and read receipts
+---
+
+## Project Overview
+
+This project is a **Real-Time Communication Application** built using **Node.js, Express, Socket.IO, and MongoDB**. Users can send messages in real-time, register, login, and authenticate via JWT. The project supports multiple clients and includes a simple chat UI for testing.  
+
+---
+
+## Features
+
+- User registration and login with **JWT authentication**
+- Real-time messaging using **Socket.IO**
+- Private messaging and broadcasting
+- Message deletion and pagination
+- MongoDB for persistent storage
+- Docker-ready for easy deployment
+- Environment variable configuration for production and development
+
+---
+
+## Technologies
+
+- **Backend:** Node.js, Express
+- **Database:** MongoDB (Atlas or local)
+- **Real-Time Communication:** Socket.IO
+- **Authentication:** JWT
+- **Dev Tools:** Nodemon, dotenv
+- **Optional:** Docker Compose
+
+---
 
 ## Project Structure
 
-```
-socketio-chat/
-├── client/                 # React front-end
-│   ├── public/             # Static files
-│   ├── src/                # React source code
-│   │   ├── components/     # UI components
-│   │   ├── context/        # React context providers
-│   │   ├── hooks/          # Custom React hooks
-│   │   ├── pages/          # Page components
-│   │   ├── socket/         # Socket.io client setup
-│   │   └── App.jsx         # Main application component
-│   └── package.json        # Client dependencies
-├── server/                 # Node.js back-end
-│   ├── config/             # Configuration files
-│   ├── controllers/        # Socket event handlers
-│   ├── models/             # Data models
-│   ├── socket/             # Socket.io server setup
-│   ├── utils/              # Utility functions
-│   ├── server.js           # Main server file
-│   └── package.json        # Server dependencies
-└── README.md               # Project documentation
-```
+real-time-communication-with-socket-io-Edrisabdella/
+│
+├── server.js # Main server entry point
+├── socket.js # Socket.IO connection handling
+├── package.json # NPM dependencies and scripts
+├── .env # Environment variables
+├── README.md # Project documentation
+├── client/ # Optional front-end folder (HTML, React, or Vue)
+│ └── index.html
+└── models/ # Mongoose schemas
+├── User.js
+└── Message.js
 
-## Getting Started
+yaml
+Copy code
 
-1. Accept the GitHub Classroom assignment invitation
-2. Clone your personal repository that was created by GitHub Classroom
-3. Follow the setup instructions in the `Week5-Assignment.md` file
-4. Complete the tasks outlined in the assignment
+---
+
+## Environment Variables
+
+Create a `.env` file in the root directory with the following:
+
+```env
+PORT=5000
+MONGODB_URI=mongodb+srv://edrisabdella178_db_user:mern123@cluster0.zmfeu2j.mongodb.net/mern-blog-db?retryWrites=true&w=majority
+CLIENT_URL=http://localhost:5173
+JWT_SECRET=ADMIN123
+You can switch MONGODB_URI to a local MongoDB if needed:
+
+env
+Copy code
+MONGODB_URI=mongodb://localhost:27017/realtime_chat
+Installation
+Clone the repository:
+
+bash
+Copy code
+git clone https://github.com/PLP-MERN-Stack-Development/real-time-communication-with-socket-io-Edrisabdella.git
+cd real-time-communication-with-socket-io-Edrisabdella
+Install dependencies:
+
+bash
+Copy code
+npm install
+Start the development server:
+
+bash
+Copy code
+npm run dev
+Start the production server:
+
+bash
+Copy code
+npm start
+Usage
+Visit http://localhost:5000/ to test the server.
+
+Connect clients via Socket.IO using the /socket.io endpoint.
+
+Register users and authenticate via JWT.
+
+Send and receive messages in real-time.
+
+Authentication
+Users can register with username and password.
+
+Passwords are hashed before saving to MongoDB.
+
+JWT is used for session management.
+
+Example: Authorization: Bearer <token> in HTTP headers.
+
+Real-Time Features
+Socket.IO enables instant message delivery.
+
+Private messaging supported by specifying recipient ID.
+
+Broadcast messages to all connected users.
+
+Messages are saved in MongoDB.
+
+Optional message deletion and pagination for chat history.
+
+Reference Files
+server.js – Node.js server setup
+
+socket.js – Socket.IO connection and event handling
+
+models/User.js – Mongoose user schema
+
+models/Message.js – Mongoose message schema
+
+client/index.html – Minimal front-end for testing
+
+All reference files are included in the repository for full execution.
+
+Contact
+Name: Edris Abdella
+
+Email: edrisabdella178@gmail.com
+
+Phone: +251905131051
+
+LinkedIn: https://www.linkedin.com/in/edris-abdella-7aa521177
+Deplyoment:[github pages](https://edrisabdella.github.io/
+PLP-MERN-Stack-Development-real-time-communication-with-socket-io-Edrisabdella/)
+GitHub: https://github.com/PLP-MERN-Stack-Development/real-time-communication-with-socket-io-Edrisabdella.git
+
+Location: Dire Dawa, Ethiopia
+
+Profile Image: https://ibb.co/RT6rny3B
+
 
 ## Files Included
 
@@ -69,9 +189,9 @@ Your work will be automatically submitted when you push to your GitHub Classroom
 5. Include screenshots or GIFs of your working application
 6. Optional: Deploy your application and add the URLs to your README.md
 
-## Resources
+## Resources used
 
 - [Socket.io Documentation](https://socket.io/docs/v4/)
 - [React Documentation](https://react.dev/)
 - [Express.js Documentation](https://expressjs.com/)
-- [Building a Chat Application with Socket.io](https://socket.io/get-started/chat) 
+- [Building a Chat Application with Socket.io](https://socket.io/get-started/chat)

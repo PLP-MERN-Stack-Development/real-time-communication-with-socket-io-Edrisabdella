@@ -1,0 +1,47 @@
+version: '3.8'
+services:
+  mongo:
+    image: mongo:6
+    restart: unless-stopped
+    volumes:
+      - mongo-data:/data/db
+    ports:
+      - "27017:27017"
+
+  server:
+    build: ./server
+    restart: unless-stopped
+    environment:
+      - PORT=5000
+      - MONGODB_URI=mongodb://mongo:27017/realtime_chat
+      - JWT_SECRET=ADMIN123
+      - SMTP_SERVICE=Gmail
+      - SMTP_HOST=smtp.gmail.com
+      - SMTP_PORT=587
+      - SMTP_USER=edrisabdella178@gmail.com
+      - SMTP_PASS=ADMIN123
+      - EMAIL_FROM="Real-Time Chat <edrisabdella178@gmail.com>"
+      - CLIENT_URL=http://localhost:5173
+    depends_on:
+      - mongo
+    ports:
+      - "5000:5000"
+    networks:
+      - appnet
+
+  client:
+    build: ./client
+    restart: unless-stopped
+    ports:
+      - "5173:80"
+    depends_on:
+      - server
+    networks:
+      - appnet
+
+volumes:
+  mongo-data:
+
+networks:
+  appnet:
+    driver: bridge
