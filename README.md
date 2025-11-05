@@ -23,7 +23,7 @@ The project supports both **local development** and **Dockerized deployment**.
 | ✏️ Message Editing | Edit and broadcast updated messages instantly |
 | 🗑️ Message Deletion | Delete own messages; event syncs across clients |
 | 📜 Pagination | Infinite scroll (50 messages per page) |
-| 👥 Admin Account |: **admin / uyeetoqpcimvblxc** |
+| 👥 Admin Account |: **admin / uyeetoqpcimvblx*** |
 | 🐳 Docker Ready | Runs MongoDB, server, and client via docker-compose |
 | 🧪 Testing | Health & registration smoke tests in `/tests` |
 
@@ -63,7 +63,7 @@ The project supports both **local development** and **Dockerized deployment**.
 ```env
 PORT=5000
 MONGODB_URI=mongodb://localhost:27017/realtime_chat
-JWT_SECRET=af23ab5a8a172e24c6d2a4a7004c2ed21b067dbeb63d54e81f50a1db2423f257df4beecb87ee91e806baeea6f65506cee245c80693227b7107b31840629b1259
+JWT_SECRET=af23ab5a8a172e24c6d2a4a7004c2ed21b067dbeb63d54e81f50a1db2423f257df4beecb87ee91e806baeea6f65506cee245c80693227b7107b31840629b125*
 MONGODB_URI_ATLAS=mongodb+srv://engineeredrisabdella_db_user:
 CLIENT_URL=http://localhost:5173
 
@@ -71,7 +71,7 @@ CLIENT_URL=http://localhost:5173
 SMTP_HOST=smtp.gmail.com
 SMTP_PORT=587
 SMTP_USER=edrisabdella178@gmail.com
-SMTP_PASS=uyeetoqpcimvblxc
+SMTP_PASS=uyeetoqpcimvblx*
 EMAIL_FROM="Real-Time Chat <edrisabdella178@gmail.com>"
 ```
 
@@ -197,7 +197,7 @@ register status 200 ...
 
 ## 📦 Deployment
 
-- Deployed on GitHub: [deployment pages](https://edrisabdella.github.io/PLP-MERN-Stack-Development-real-time-communication-with-socket-io-Edrisabdella/)
+- Deployed on GitHub:(https://edrisabdella.github.io/PLP-MERN-Stack-Development-real-time-communication-with-socket-io-Edrisabdella/)
 
     Further deployment will be as following
 - Host backend on Render / Railway / Vercel (backend).  
@@ -223,5 +223,3 @@ register status 200 ...
 📞 +251 905 131 051  
 
 ---
-
-## 💚
